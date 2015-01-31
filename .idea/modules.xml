@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/DeviceUptime.iml" filepath="$PROJECT_DIR$/DeviceUptime.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GetUptime.iml" filepath="$PROJECT_DIR$/GetUptime.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

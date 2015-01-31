@@ -18,6 +18,7 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:textStyle="normal"
-        android:textSize="@dimen/abc_text_size_large_material"/>
+        android:textSize="@dimen/abc_text_size_large_material"
+        />
 
 </RelativeLayout>

@@ -11,6 +11,9 @@
     <string name="time_M">mois</string>
     <string name="timep_M">mois</string>
 
+    <string name="time_w">semaine</string>
+    <string name="timep_w">semaines</string>
+
     <string name="time_d">jour</string>
     <string name="timep_d">jours</string>
 
@@ -22,4 +25,5 @@
 
     <string name="time_s">secondes</string>
     <string name="timep_s">seconde</string>
+    <string name="action_donate">S\'il vous plaît don</string>
 </resources>

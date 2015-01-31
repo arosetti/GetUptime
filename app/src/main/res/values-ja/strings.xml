@@ -11,6 +11,9 @@
     <string name="time_M">ヶ月</string>
     <string name="timep_M">ヶ月</string>
 
+    <string name="time_w">週間</string>
+    <string name="timep_w">週間</string>
+
     <string name="time_d">日</string>
     <string name="timep_d">日</string>
 
@@ -22,4 +25,5 @@
 
     <string name="time_s">秒</string>
     <string name="timep_s">秒</string>
+    <string name="action_donate">寄付してください</string>
 </resources>
