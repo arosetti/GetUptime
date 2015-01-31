@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">GetUptime</string>
+    <string name="msg_sup">開始日</string>
+    <string name="msg_up">稼働時間</string>
+    <string name="action_exit">出口</string>
+    <string name="action_settings">設定</string>
+
+    <string name="time_y">年</string>
+    <string name="timep_y">年</string>
+
+    <string name="time_M">ヶ月</string>
+    <string name="timep_M">ヶ月</string>
+
+    <string name="time_d">日</string>
+    <string name="timep_d">日</string>
+
+    <string name="time_h">時間</string>
+    <string name="timep_h">時間</string>
+
+    <string name="time_m">分</string>
+    <string name="timep_m">分</string>
+
+    <string name="time_s">秒</string>
+    <string name="timep_s">秒</string>
+</resources>

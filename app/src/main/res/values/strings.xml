@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">GetUptime</string>
+    <string name="msg_sup">startup date</string>
+    <string name="msg_up">uptime</string>
+    <string name="action_exit">Exit</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="time_y">year</string>
+    <string name="timep_y">years</string>
+
+    <string name="time_M">month</string>
+    <string name="timep_M">months</string>
+
+    <string name="time_d">day</string>
+    <string name="timep_d">days</string>
+
+    <string name="time_h">hour</string>
+    <string name="timep_h">hours</string>
+
+    <string name="time_m">minute</string>
+    <string name="timep_m">minutes</string>
+
+    <string name="time_s">second</string>
+    <string name="timep_s">seconds</string>
+</resources>

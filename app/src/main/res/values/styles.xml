@@ -1,0 +1,11 @@
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
+    <color name="primary">#4CAF50</color>
+    <color name="primary_dark">#1B5E20</color>
+    <color name="accent">#4CAF50</color>
+</resources>
