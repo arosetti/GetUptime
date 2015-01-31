@@ -114,17 +114,7 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
-        if (id == R.id.action_donate) {
-            donate();
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
-    }
-
-    private void donate() {
-        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TS7VETH3S63SS"));
-        startActivity(browserIntent);
     }
 
     private void shareIntent(String text) {
