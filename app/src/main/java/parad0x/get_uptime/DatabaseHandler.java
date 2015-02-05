@@ -1,4 +1,4 @@
-package parad0x.deviceuptime;
+package parad0x.get_uptime;
 
 import android.content.ContentValues;
 import android.content.Context;

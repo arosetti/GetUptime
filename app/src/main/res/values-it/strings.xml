@@ -25,4 +25,7 @@
 
     <string name="time_s">secondo</string>
     <string name="timep_s">secondi</string>
+    <string name="app_descrip">Questa app mostra l\'uptime e la data di avvio del tuo dispositivo</string>
+    <string name="app_credits">Autore: Alessandro Rosetti (alessandro.rosetti@gmail.com)\nLicenza: GPLv3\nCodice: https://github.com/viralex/GetUptime</string>
+    <string name="action_about">About</string>
 </resources>

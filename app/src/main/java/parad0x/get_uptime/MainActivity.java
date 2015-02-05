@@ -1,13 +1,14 @@
-package parad0x.deviceuptime;
+package parad0x.get_uptime;
 
+import android.app.AlertDialog;
 import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import java.io.FileInputStream;
@@ -96,9 +97,19 @@ public class MainActivity extends ActionBarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
+        if (id == R.id.action_share) {
+            shareIntent(getUptime(false));
+            return true;
+        }
+        
         if (id == R.id.action_settings) {
             Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
+            return true;
+        }
+        
+        if (id == R.id.action_about) {
+            showAbout();
             return true;
         }
 
@@ -106,11 +117,6 @@ public class MainActivity extends ActionBarActivity {
             //android.os.Process.killProcess(android.os.Process.myPid());
             //System.exit(0);
             finish();
-            return true;
-        }
-
-        if (id == R.id.action_share) {
-            shareIntent(getUptime(false));
             return true;
         }
 
@@ -125,6 +131,21 @@ public class MainActivity extends ActionBarActivity {
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
 
+    protected void showAbout() {
+        View messageView = getLayoutInflater().inflate(R.layout.about_dialog, null, false);
+
+        TextView textView = (TextView) messageView.findViewById(R.id.about_credits);
+        int defaultColor = textView.getTextColors().getDefaultColor();
+        textView.setTextColor(defaultColor);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setTitle(R.string.app_name);
+        builder.setView(messageView);
+        builder.create();
+        builder.show();
+    }
+    
     private String getStartUptime() {
         String uptime = getRawUptime();
 
