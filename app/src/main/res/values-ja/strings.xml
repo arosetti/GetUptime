@@ -28,4 +28,6 @@
     <string name="app_descrip">This app shows the current device uptime and startup date</string>
     <string name="app_credits">Author: Alessandro Rosetti (alessandro.rosetti@gmail.com)\nLicense: GPLv3\nCode: https://github.com/viralex/GetUptime</string>
     <string name="action_about">約</string>
+    <string name="msg_best">最高のアップタイム！</string>
+    <string name="msg_this">これです！</string>
 </resources>

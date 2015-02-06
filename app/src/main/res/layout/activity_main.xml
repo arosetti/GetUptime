@@ -9,16 +9,29 @@
                 tools:context=".MainActivity"
                 android:background="#d90f0f0f">
 
-    <TextView
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/TextViewUptime"
-        android:textColor="#ff53ff58"
-        android:gravity="center"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textStyle="normal"
-        android:textSize="@dimen/uptime_text_size"
-        />
+        android:id="@+id/scrollView"
+        android:foregroundGravity="center|center_vertical|center_horizontal"
+        android:fillViewport="false"
+        android:layout_centerInParent="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/TextViewUptime"
+                android:textColor="#4CAF50"
+                android:gravity="center|center_vertical|center_horizontal"
+                android:textStyle="normal"
+                android:textSize="@dimen/uptime_text_size"
+                android:layout_gravity="center" />
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>
