@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -41,6 +40,9 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public void onResume(){
         super.onResume();
+        
+        updateRecord();
+        updateBest();
 
         stopped = false;
         Thread t = new Thread() {
@@ -107,24 +109,43 @@ public class MainActivity extends ActionBarActivity {
         try {
             db = new DatabaseHandler(getApplicationContext());
         } catch (Exception e) {}
-        
-        startDate = getUnixTime() - getRawUptime().longValue();
-        s_startDate = getTimeFromUnix(startDate); //getStartUptime();
-                
-        updateRecord();
-        updateBest();
+
+        Double c = Math.floor(getUnixTime()) - Math.floor(getRawUptime());
+        startDate = c.longValue();
+        s_startDate = getTimeFromUnix(startDate);
     }
     
     public void updateRecord() {
         try {
-            long current = getRawUptime().longValue();
-
-            if (!db.exists(startDate)) {
+            Double c = Math.floor(getRawUptime());
+            long current = c.longValue();
+            boolean sd = db.exists(startDate),
+                    sd1 = db.exists(startDate + 1),
+                    sd2 = db.exists(startDate - 1);
+            
+            if (!sd && !sd1 && !sd2) {
                 db.add(startDate, current);
                 Log.d(TAG, "ADDING NEW RECORD: " + startDate + ", " + current);
-            } else {
-                db.update(startDate, current);
-                Log.d(TAG, "UPDATING RECORD: " + startDate + ", " + current);
+            }
+            else {
+                if (sd) {
+                    db.update(startDate, current);
+                    Log.d(TAG, "UPDATING RECORD: " + startDate + ", " + current);
+                    db.remove(startDate + 1);
+                    db.remove(startDate - 1);
+                }
+                else if (sd1) {
+                    db.update(startDate + 1, current);
+                    Log.d(TAG, "UPDATING RECORD: " + (startDate + 1) + ", " + current);
+                    db.remove(startDate);
+                    db.remove(startDate - 1);
+                }
+                else if (sd2) {
+                    db.update(startDate - 1, current);
+                    Log.d(TAG, "UPDATING RECORD: " + (startDate - 1) + ", " + current);
+                    db.remove(startDate);
+                    db.remove(startDate + 1);
+                }
             }
         }
         catch (Exception e)
@@ -225,18 +246,6 @@ public class MainActivity extends ActionBarActivity {
         }
     }
     
-    private String getStartUptime() {
-        int uptime = getRawUptime().intValue();
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
-        //sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
-
-        Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.SECOND, - uptime);
-
-        return sdf.format(cal.getTime());
-    }
-    
     private long getUnixTime() {
         return  System.currentTimeMillis() / 1000L;
     }
@@ -245,7 +254,6 @@ public class MainActivity extends ActionBarActivity {
         time = time * 1000L;
         Date date = new Date(time);
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy HH:mm:ss");
-        //sdf.setTimeZone(TimeZone.getTimeZone("GMT"));
         return sdf.format(date);
     }
     

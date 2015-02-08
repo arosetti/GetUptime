@@ -1,3 +1,13 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:summary="@string/title_activity_settings"
+        android:title="@string/title_activity_settings" >
 
+    <CheckBoxPreference
+        android:key="show_sub_time"
+        android:title="@string/pref_title_sub_time"
+        android:summary="@string/pref_description_sub_time"
+        android:defaultValue="false"/>
+    </PreferenceCategory>
+    
 </PreferenceScreen>

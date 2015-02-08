@@ -1,6 +1,7 @@
 <resources>
     <string name="title_activity_settings">Settings</string>
-
     <string name="pref_header_general">General</string>
 
+    <string name="pref_title_sub_time" translatable="false" >Remaining Time</string>
+    <string name="pref_description_sub_time" translatable="false">Show remaining time to beat the current best time</string>
 </resources>

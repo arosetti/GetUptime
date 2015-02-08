@@ -10,13 +10,6 @@
         android:actionProviderClass="android.widget.ShareActionProvider"
         app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
-        android:icon="@drawable/ic_action_settings"
-        android:orderInCategory="100"
-        android:visible="false"
-        app:showAsAction="ifRoom" />
-
     <item android:id="@+id/menu_overflow"
         android:title="Overflow"
         android:icon="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"
@@ -24,10 +17,17 @@
         app:showAsAction="always" >
 
         <menu>
+            <item android:id="@+id/action_settings"
+                android:title="@string/action_settings"
+                android:icon="@drawable/ic_action_settings"
+                android:visible="false"
+                app:showAsAction="always" />
+            
             <item android:id="@+id/action_about"
                 android:title="@string/action_about"
+                android:icon="@drawable/ic_action_about"
                 android:orderInCategory="120"
-                app:showAsAction="never"/>
+                app:showAsAction="ifRoom"/>
             
             <item android:id="@+id/action_exit"
                   android:title="@string/action_exit"

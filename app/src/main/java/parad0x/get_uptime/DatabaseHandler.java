@@ -8,6 +8,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
+    public final String TAG = this.getClass().getSimpleName();
+
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "uptime";
     private static final String TABLE_SCORE = "score";
@@ -70,6 +72,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void remove(long start) {
+        String updateQuery = "DELETE FROM " + TABLE_SCORE +
+                " WHERE " + KEY_START + "=" + start;
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(updateQuery);
+        db.close();
+    }
+    
     public String[] getAll() {
         String selectQuery = "SELECT  * FROM " + TABLE_SCORE;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -81,7 +91,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             data[i] = cursor.getString(1);
             i = i++;
-            Log.d("DB",  cursor.getString(0) + ", " +
+            Log.d(TAG,  cursor.getString(0) + ", " +
                          cursor.getString(1) + ", " +
                          cursor.getString(2));
         }
