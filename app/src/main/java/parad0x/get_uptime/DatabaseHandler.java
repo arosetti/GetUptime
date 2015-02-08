@@ -80,20 +80,24 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.close();
     }
     
-    public String[] getAll() {
-        String selectQuery = "SELECT  * FROM " + TABLE_SCORE;
+    public String[][] getAll() {
+        String selectQuery = "SELECT " + KEY_START + "," + KEY_VAL +
+                             " FROM " + TABLE_SCORE +
+                             " ORDER BY " + KEY_VAL + " DESC";
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
-        String[] data = new String[cursor.getCount()];
+        String[][] data = new String[cursor.getCount()][2];
         int i = 0;
 
         while (cursor.moveToNext()) {
-            data[i] = cursor.getString(1);
-            i = i++;
+            data[i][0] = cursor.getString(0);
+            data[i][1] = cursor.getString(1);
+
+            i++;
+            
             Log.d(TAG,  cursor.getString(0) + ", " +
-                         cursor.getString(1) + ", " +
-                         cursor.getString(2));
+                         cursor.getString(1));
         }
         cursor.close();
         db.close();

@@ -17,8 +17,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="parad0x.get_uptime.SettingsActivity"
+            android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name=".TopActivity"
+            android:label="@string/title_activity_top" >
         </activity>
     </application>
 
