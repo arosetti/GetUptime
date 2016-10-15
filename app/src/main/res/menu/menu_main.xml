@@ -6,13 +6,13 @@
     <item
         android:id="@+id/action_share"
         android:title="Share"
-        android:icon="@drawable/abc_ic_menu_share_mtrl_alpha"
+        android:icon="@drawable/ic_menu_share"
         android:actionProviderClass="android.widget.ShareActionProvider"
         app:showAsAction="ifRoom" />
 
     <item android:id="@+id/menu_overflow"
         android:title="Overflow"
-        android:icon="@drawable/abc_ic_menu_moreoverflow_mtrl_alpha"
+        android:icon="@drawable/ic_menu_moreoverflow_normal_holo_light"
         android:orderInCategory="101"
         app:showAsAction="always" >
 
