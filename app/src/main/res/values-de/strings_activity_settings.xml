@@ -1,6 +1,5 @@
 <resources>
     <string name="title_activity_settings">Einstellungen</string>
-
+    <string name="title_activity_top">Top uptimes</string>
     <string name="pref_header_general">General</string>
-
 </resources>
