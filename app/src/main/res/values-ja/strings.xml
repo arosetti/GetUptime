@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Get Uptime</string>
+    <string name="app_name">GetUptime</string>
     <string name="msg_sup">開始日</string>
     <string name="msg_up">稼働時間</string>
     <string name="action_exit">出口</string>

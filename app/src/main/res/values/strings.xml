@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShowUptime</string>
+    <string name="app_name">GetUptime</string>
     <string name="msg_sup">startup date</string>
     <string name="msg_up">uptime</string>
     <string name="action_exit">Exit</string>

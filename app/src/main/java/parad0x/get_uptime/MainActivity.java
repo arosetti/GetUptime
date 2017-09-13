@@ -1,10 +1,11 @@
 package parad0x.get_uptime;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ActionBar;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
@@ -13,9 +14,9 @@ import android.view.View;
 import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
     public final String TAG = this.getClass().getSimpleName();
-
+    private ActionBar actionBar;
     UptimeUtils up = null;
     
     volatile boolean stopped = false;
@@ -80,8 +81,13 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setIcon(R.mipmap.ic_launcher);
+        actionBar = getActionBar();
+        //actionBar.setCustomView(R.layout.actionbar_view);
+        if (actionBar != null) {
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setIcon(R.mipmap.ic_launcher);
+            actionBar.show();
+        }
 
         up = new UptimeUtils(getBaseContext());
     }
@@ -121,7 +127,7 @@ public class MainActivity extends ActionBarActivity {
     private void shareIntent(String text) {
         Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "This is my uptime!"); // device name
+        sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "This is my uptime!");
         sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, text);
         startActivity(Intent.createChooser(sharingIntent, "Share via"));
     }
@@ -129,7 +135,7 @@ public class MainActivity extends ActionBarActivity {
     protected void showAbout() {
         View messageView = getLayoutInflater().inflate(R.layout.about_dialog, null, false);
 
-        TextView textView = (TextView) messageView.findViewById(R.id.about_credits);
+        TextView textView = messageView.findViewById(R.id.about_credits);
         int defaultColor = textView.getTextColors().getDefaultColor();
         textView.setTextColor(defaultColor);
 

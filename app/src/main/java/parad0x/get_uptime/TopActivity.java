@@ -1,30 +1,27 @@
 package parad0x.get_uptime;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import android.app.ActionBar;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
 
-public class TopActivity extends ActionBarActivity {
+public class TopActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
+        ActionBar actionBar = getActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
         setContentView(R.layout.activity_top);
+        TextView mTextViewInfo = findViewById(R.id.TextViewLog);
 
-        TextView mTextViewInfo = (TextView) findViewById(R.id.TextViewLog);
-
-        /* Bundle extras = getIntent().getExtras();
-        if(extras != null)
-            str = extras.getString("tag"); */
-        
         String top = "";
         
         try {
